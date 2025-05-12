@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  scallop:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./output:/app/output
+    command: ["--image", "nginx:latest", "--format", "json"]
+    # Uncomment the following line to save the output to a file
+    # command: ["--image", "nginx:latest", "--format", "json", ">", "/app/output/result.json"]
